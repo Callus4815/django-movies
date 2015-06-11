@@ -13,9 +13,16 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import include, url, patterns
 from django.contrib import admin
+from movieLens import views
+
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^movie', views.movies, name="movies"),
+    url(r'^rater', views.show_rater, name="show_rater"),
+    url(r'rating', views.ratinger),
+
 ]
